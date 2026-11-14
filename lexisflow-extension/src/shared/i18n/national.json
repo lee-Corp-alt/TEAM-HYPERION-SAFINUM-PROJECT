@@ -1,0 +1,342 @@
+{
+  "__status__": {
+    "ewo": "draft",
+    "ful": "draft",
+    "dua": "draft"
+  },
+  "Environnement de test — données fictives, aucune transaction réelle.": {
+    "ewo": "Vôm ya tem — mam mese me se ki tɔ́e, moní ya tɔ́e e kɛ ki.",
+    "ful": "Nokkuure foondol — kuuje ɗe ngonaa goonga, walaa ceede goongaaje neldaaɗe.",
+    "dua": "Wuma la keka — mambo mɛsɛ ma si mbalɛ, mɔni ma mbalɛ ma si malɔma."
+  },
+  "Protocole de test": {
+    "ewo": "Mebendé me tem",
+    "ful": "Laawol foondol",
+    "dua": "Mbenda ma keka"
+  },
+  "Retour au hackathon": {
+    "ewo": "Bulan á hackathon",
+    "ful": "Lorta haa hackathon",
+    "dua": "Timba o hackathon"
+  },
+  "Banque en ligne": {
+    "ewo": "Bank á internet",
+    "ful": "Banki nder internet",
+    "dua": "Bank o internet"
+  },
+  "Solde": {
+    "ewo": "Moní e ligi",
+    "ful": "Ceede luttuɗe",
+    "dua": "Mɔni ma diedi"
+  },
+  "Frais": {
+    "ewo": "Tañ",
+    "ful": "Njoɓdi",
+    "dua": "Sawedi"
+  },
+  "Bénéficiaire": {
+    "ewo": "Mot a nɔ́ŋ",
+    "ful": "Keɓoowo",
+    "dua": "Nu nu makusɛ"
+  },
+  "Récapitulatif": {
+    "ewo": "Mam mese",
+    "ful": "Raɓɓiɗinol",
+    "dua": "Mambo mɛsɛ"
+  },
+  "Confirmation": {
+    "ewo": "Eyebe",
+    "ful": "Tabbitinol",
+    "dua": "Jemea"
+  },
+  "Votre compte": {
+    "ewo": "Kónte woe",
+    "ful": "Konte maa",
+    "dua": "Kɔnti ango"
+  },
+  "Sécurité": {
+    "ewo": "Ebaʼale",
+    "ful": "Kisal",
+    "dua": "Betatedi"
+  },
+  "Vérifiez toujours le nom et le numéro du bénéficiaire avant de confirmer un transfert.": {
+    "ewo": "Eyoŋ ese, fombo dzóé ai nombo ya mot a nɔ́ŋ ósúsua nâ o yebe elɔ́man moní.",
+    "ful": "Nde fuu, ƴeewtu innde e limgal keɓoowo hiddeko a tabbitina neldol ceede.",
+    "dua": "Ponda yɛsɛ, ombwa dína na nɔmba a nu nu makusɛ oboso ba jemea loma la mɔni."
+  },
+  "Connexion sécurisée": {
+    "ewo": "Nlatan ó ne ebaʼale",
+    "ful": "Jokkondiral hisnangal",
+    "dua": "Bolatanɛ bo tatabɛ"
+  },
+  "Safinum Pay — environnement de démonstration. Ne saisissez aucune donnée personnelle réelle.": {
+    "ewo": "Safinum Pay — vôm ya eliga. Te tsili mam moe me tɔ́e.",
+    "ful": "Safinum Pay — nokkuure hollol. Taa winndu habaruuji maa goongaaji.",
+    "dua": "Safinum Pay — wuma la bolee. O si tila mambo mɔngɔ ma mbalɛ."
+  },
+  "Bonjour, *": {
+    "ewo": "Mbolo, {*}",
+    "ful": "Sannu, {*}",
+    "dua": "Idib'a bwam, {*}"
+  },
+  "Consultez votre solde et lancez un transfert en toute sécurité.": {
+    "ewo": "Fombo moní e ligi, o lɔ́m fe moní ai ebaʼale.",
+    "ful": "Ƴeewtu ceede maa luttuɗe, neldu ceede bee kisal.",
+    "dua": "Ombwa mɔni ma diedi, o lome pɛ mɔni na betatedi."
+  },
+  "Solde disponible": {
+    "ewo": "Moní e ne á kónte",
+    "ful": "Ceede ngonɗe nder konte",
+    "dua": "Mɔni ma ye o kɔnti"
+  },
+  "Numéro de compte : #": {
+    "ewo": "Nombo kónte: {1}",
+    "ful": "Limgal konte: {1}",
+    "dua": "Nɔmba a kɔnti: {1}"
+  },
+  "Compte courant": {
+    "ewo": "Kónte ya mos ose",
+    "ful": "Konte nyalde fuu",
+    "dua": "Kɔnti a buńa tɛ"
+  },
+  "Effectuer un transfert": {
+    "ewo": "Lɔ́m moní",
+    "ful": "Neldu ceede",
+    "dua": "Loma mɔni"
+  },
+  "Consulter les frais": {
+    "ewo": "Fombo tañ",
+    "ful": "Ƴeewtu njoɓdi",
+    "dua": "Ombwa sawedi"
+  },
+  "Transactions récentes": {
+    "ewo": "Mam me moní ya mkpámaŋ",
+    "ful": "Golle ceede kese",
+    "dua": "Mambo ma mɔni ma peńa"
+  },
+  "Paiement marchand": {
+    "ewo": "Eyaʼan mot makíd",
+    "ful": "Njoɓdi filoowo",
+    "dua": "Sawedi la moto a don"
+  },
+  "Salaire reçu": {
+    "ewo": "Moní esié e nga so",
+    "ful": "Njoɓdi kuugal heɓaama",
+    "dua": "Musawedi ma ebolo mu kusabɛ"
+  },
+  "Transfert reçu": {
+    "ewo": "Moní ba lɔ́m e nga so",
+    "ful": "Ceede neldaaɗe keɓaama",
+    "dua": "Mɔni ma lomabɛ ma kusabɛ"
+  },
+  "Facture électricité": {
+    "ewo": "Kalara tañ elektrik",
+    "ful": "Ɗerewol njoɓdi kuuraŋ",
+    "dua": "Kalati a sawedi la elektrik"
+  },
+  "Frais de transfert": {
+    "ewo": "Tañ ya lɔ́m moní",
+    "ful": "Njoɓdi neldol ceede",
+    "dua": "Sawedi la loma mɔni"
+  },
+  "Choisissez le type de transfert et le montant. Les frais sont calculés automatiquement.": {
+    "ewo": "Tɔb fasɔŋ elɔ́man ai tañ moní. Tañ ya lɔ́m e lañeban etam.",
+    "ful": "Suɓu noone neldol e limgal ceede. Njoɓdi limete bee hoore mum.",
+    "dua": "Pɔsɔ mbadi a loma na musɔngi ma mɔni. Sawedi di masɔngabɛ na mɔmɛnɛ."
+  },
+  "Type d'opération": {
+    "ewo": "Fasɔŋ esié",
+    "ful": "Noone kuugal",
+    "dua": "Mbadi a ebolo"
+  },
+  "Compte Safinum": {
+    "ewo": "Kónte Safinum",
+    "ful": "Konte Safinum",
+    "dua": "Kɔnti a Safinum"
+  },
+  "Mobile Money": {
+    "ewo": "Mobile Money",
+    "ful": "Mobile Money",
+    "dua": "Mobile Money"
+  },
+  "Autre banque": {
+    "ewo": "Bank mfə́",
+    "ful": "Banki feere",
+    "dua": "Bank nipɛpɛ"
+  },
+  "Transfert instantané et gratuit": {
+    "ewo": "Elɔ́man ya avól, zëzë",
+    "ful": "Neldol jaawngol, bilaa njoɓdi",
+    "dua": "Loma la bwangu, sawedi di titi"
+  },
+  "Frais de # (min. #, max. #)": {
+    "ewo": "Tañ ya {1} (e sí: {2}, e yób: {3})",
+    "ful": "Njoɓdi {1} (ɓurngo famɗugo: {2}, ɓurngo ɗuuɗugo: {3})",
+    "dua": "Sawedi la {1} (o wase: {2}, o mɔ̌ń: {3})"
+  },
+  "Montant à envoyer": {
+    "ewo": "Tañ moní ya lɔ́m",
+    "ful": "Limgal ceede neldeteeɗe",
+    "dua": "Musɔngi ma mɔni ma loma"
+  },
+  "Gratuit": {
+    "ewo": "Zëzë",
+    "ful": "Bilaa njoɓdi",
+    "dua": "Sawedi di titi"
+  },
+  "Total à débiter": {
+    "ewo": "Moní ese ba ye va",
+    "ful": "Ceede fuu ittete",
+    "dua": "Mɔni mɛsɛ ma mabusisabɛ"
+  },
+  "Solde après opération": {
+    "ewo": "Moní e ye ligi á mvús",
+    "ful": "Ceede luttooɗe ɓaawo kuugal",
+    "dua": "Mɔni ma madia ombusa ebolo"
+  },
+  "Retour": {
+    "ewo": "Bulan mvús",
+    "ful": "Lorta",
+    "dua": "Timba"
+  },
+  "Continuer": {
+    "ewo": "Kɛ osú",
+    "ful": "Jokku",
+    "dua": "Ala o boso"
+  },
+  "Renseignez les informations du destinataire. Vérifiez toujours le numéro avant de valider.": {
+    "ewo": "Tsili mam me mot a nɔ́ŋ. Eyoŋ ese, fombo nombo ósúsua nâ o yebe.",
+    "ful": "Winndu habaruuji keɓoowo. Nde fuu, ƴeewtu limgal hiddeko a jaɓa.",
+    "dua": "Tila mambo ma nu nu makusɛ. Ponda yɛsɛ, ombwa nɔmba oboso ba jemea."
+  },
+  "Ce bénéficiaire n'a jamais été utilisé sur ce compte. Vérifiez le numéro avant de continuer.": {
+    "ewo": "O ngenë te lɔ́m mot nyɔ moní ai kónte di. Fombo nombo ósúsua nâ o kɛ osú.",
+    "ful": "A neldaayi keɓoowo oo ceede bee konte ndee abada. Ƴeewtu limgal hiddeko a jokka.",
+    "dua": "O si lomedi nu moto mɔni na nin kɔnti to ponda. Ombwa nɔmba oboso ba ala o boso."
+  },
+  "Nom du bénéficiaire": {
+    "ewo": "Dzóé mot a nɔ́ŋ",
+    "ful": "Innde keɓoowo",
+    "dua": "Dína la nu nu makusɛ"
+  },
+  "Numéro de téléphone": {
+    "ewo": "Nombo telefón",
+    "ful": "Limgal telefon",
+    "dua": "Nɔmba a telefon"
+  },
+  "Motif du transfert": {
+    "ewo": "Amú dzé o lɔ́m moní",
+    "ful": "Daliila neldol",
+    "dua": "Njɔm a loma"
+  },
+  "Note (optionnel)": {
+    "ewo": "Kalara (nge wa yi)",
+    "ful": "Winndannde (to a yiɗi)",
+    "dua": "Leta (yetɛna o mapula)"
+  },
+  "J'ai vérifié le nom et le numéro du bénéficiaire.": {
+    "ewo": "Me fombo ya dzóé ai nombo ya mot a nɔ́ŋ.",
+    "ful": "Mi ƴeewtii innde e limgal keɓoowo.",
+    "dua": "Na ombwedi dína na nɔmba a nu nu makusɛ."
+  },
+  "Vérifiez les informations avant de confirmer le transfert.": {
+    "ewo": "Fombo mam mese ósúsua nâ o yebe elɔ́man.",
+    "ful": "Ƴeewtu habaruuji hiddeko a tabbitina neldol.",
+    "dua": "Ombwa mambo mɛsɛ oboso ba jemea loma."
+  },
+  "Montant": {
+    "ewo": "Tañ moní",
+    "ful": "Limgal ceede",
+    "dua": "Musɔngi ma mɔni"
+  },
+  "Total débité": {
+    "ewo": "Moní ese ba va",
+    "ful": "Ceede fuu ittaaɗe",
+    "dua": "Mɔni mɛsɛ ma busisabɛ"
+  },
+  "Téléphone": {
+    "ewo": "Telefón",
+    "ful": "Telefon",
+    "dua": "Telefon"
+  },
+  "Référence": {
+    "ewo": "Nombo elɔ́man",
+    "ful": "Limgal neldol",
+    "dua": "Nɔmba a loma"
+  },
+  "Opération": {
+    "ewo": "Esié",
+    "ful": "Kuugal",
+    "dua": "Ebolo"
+  },
+  "Je confirme que les informations ci-dessus sont correctes.": {
+    "ewo": "Me yebe nâ mam mese me ne á yób me ne tɔ́e.",
+    "ful": "Mi tabbitini habaruuji dow ɗii ko goonga.",
+    "dua": "Na memi nɛ mambo mɛsɛ ma ye o mɔ̌ń ma ye mbalɛ."
+  },
+  "Modifier": {
+    "ewo": "Tsendé",
+    "ful": "Waylu",
+    "dua": "Tukwa"
+  },
+  "Confirmer le transfert": {
+    "ewo": "Yebe elɔ́man",
+    "ful": "Tabbitin neldol",
+    "dua": "Emɛ loma"
+  },
+  "Transfert effectué": {
+    "ewo": "Elɔ́man e mana",
+    "ful": "Neldol timmi",
+    "dua": "Loma di bɔi"
+  },
+  "Votre transfert a été envoyé avec succès.": {
+    "ewo": "Moní woe e kɛ mvɔé.",
+    "ful": "Ceede maa neldaama bee nasara.",
+    "dua": "Mɔni mɔngɔ ma lomabɛ bwam."
+  },
+  "Statut": {
+    "ewo": "Ane e ne",
+    "ful": "Ngonka",
+    "dua": "Nɛni e yenɔ"
+  },
+  "Succès": {
+    "ewo": "Mvɔé",
+    "ful": "Nasara",
+    "dua": "Bwam"
+  },
+  "Nouveau transfert": {
+    "ewo": "Elɔ́man mkpámaŋ",
+    "ful": "Neldol kesol",
+    "dua": "Loma la peńa"
+  },
+  "Une erreur est survenue": {
+    "ewo": "Abé dzam é nga boban",
+    "ful": "Juumre waɗi",
+    "dua": "Diwusɛ di bolanɛ"
+  },
+  "Le montant doit être supérieur à zéro.": {
+    "ewo": "Tañ moní wa yiane lodo zëzë.",
+    "ful": "Limgal ceede sey ɓura meere.",
+    "dua": "Musɔngi ma mɔni mu angamɛn buka to lambo."
+  },
+  "Solde insuffisant pour effectuer ce transfert.": {
+    "ewo": "Moní woe e kui ki ne lɔ́m.",
+    "ful": "Ceede maa heƴataa ngam neldol ngol.",
+    "dua": "Mɔni mɔngɔ ma si dongamɛn ońola loma."
+  },
+  "Alerte de sécurité": {
+    "ewo": "Melebe ya ebaʼale",
+    "ful": "Reentinol kisal",
+    "dua": "Malea ma betatedi"
+  },
+  "Alerte de sécurité : vérifiez le numéro du bénéficiaire avant de continuer.": {
+    "ewo": "Melebe ya ebaʼale: fombo nombo ya mot a nɔ́ŋ ósúsua nâ o kɛ osú.",
+    "ful": "Reentinol kisal: ƴeewtu limgal keɓoowo hiddeko a jokka.",
+    "dua": "Malea ma betatedi: ombwa nɔmba a nu nu makusɛ oboso ba ala o boso."
+  },
+  "Vous devez confirmer les informations avant de valider le transfert.": {
+    "ewo": "Wa yiane yebe mam mese ósúsua nâ o lɔ́m moní.",
+    "ful": "Sey a tabbitina habaruuji hiddeko a jaɓa neldol.",
+    "dua": "O angamɛn jemea mambo mɛsɛ oboso ba loma mɔni."
+  }
+}

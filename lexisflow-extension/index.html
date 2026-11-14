@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LexisFlow — dev harness</title>
+    <style>
+      /* Stand-in for the bank page. The button and div rules are deliberately hostile to
+         prove the widget is isolated from page CSS. */
+      body { margin: 0; min-height: 100vh; background: #0b0f14; color: #e5e7eb; font-family: Georgia, serif; }
+      div { letter-spacing: 0; }
+      button { font: inherit; font-size: 15px; padding: 10px 18px; border-radius: 999px; border: 1px solid #334155; background: #111827; color: #e5e7eb; cursor: pointer; }
+      #bank { max-width: 760px; margin: 0 auto; padding: 24px 24px 260px; }
+      ol { display: flex; gap: 16px; list-style: none; padding: 0; font-size: 13px; color: #94a3b8; }
+      section, aside { border: 1px solid #1f2937; border-radius: 20px; padding: 24px; margin-top: 16px; }
+      dl > div, .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #1f2937; }
+      dd { margin: 0; font-weight: 700; }
+      label { display: block; margin-top: 12px; font-size: 12px; text-transform: uppercase; color: #94a3b8; }
+      input[type=text], input[type=tel], input[type=number], select, textarea { display: block; width: 100%; box-sizing: border-box; margin-top: 4px; padding: 10px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: #e5e7eb; font: inherit; }
+      .amount { font-size: 30px; font-weight: 700; }
+      .border-red-300, .border-amber-300 { border: 1px solid; border-radius: 16px; padding: 14px 18px; margin-top: 16px; }
+      .border-red-300 { border-color: #fca5a5; background: #450a0a; }
+      .border-amber-300 { border-color: #fcd34d; background: #451a03; }
+      .dev { margin-top: 24px; padding: 12px; border: 1px dashed #475569; border-radius: 12px; font-family: monospace; font-size: 12px; }
+      .dev button { font-size: 12px; padding: 6px 10px; margin: 4px 4px 0 0; }
+    </style>
+  </head>
+  <body>
+    <div id="bank"></div>
+    <script type="module" src="/dev/main.tsx"></script>
+  </body>
+</html>

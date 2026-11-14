@@ -1,0 +1,329 @@
+{
+  "__status__": {
+    "ewo": "draft",
+    "ful": "draft",
+    "dua": "draft"
+  },
+  "dockLabel": {
+    "fr": "Assistant vocal LexisFlow",
+    "en": "LexisFlow voice assistant",
+    "ewo": "Mvɔm nsɔ̀ LexisFlow",
+    "ful": "Walliido sawtu LexisFlow",
+    "dua": "Mosusa mwa LexisFlow"
+  },
+  "statusActive": {
+    "fr": "ACTIF",
+    "en": "ACTIVE",
+    "ewo": "A ŋgɛ",
+    "ful": "HOLLI",
+    "dua": "A MBOA"
+  },
+  "statusReading": {
+    "fr": "EN LECTURE",
+    "en": "READING",
+    "ewo": "A ZƆ̌",
+    "ful": "JANNGA",
+    "dua": "A SOMA"
+  },
+  "statusError": {
+    "fr": "ERREUR",
+    "en": "ERROR",
+    "ewo": "ABÉ",
+    "ful": "JUUMRE",
+    "dua": "DIWUSƐ"
+  },
+  "waveReady": {
+    "fr": "PRÊT",
+    "en": "READY",
+    "ewo": "A ŊGÓ",
+    "ful": "ƊUM HAYI",
+    "dua": "A ŊGÓ"
+  },
+  "wavePaused": {
+    "fr": "PAUSE",
+    "en": "PAUSED",
+    "ewo": "A ZƆ̌ KI",
+    "ful": "DARTII",
+    "dua": "A DIKA"
+  },
+  "play": {
+    "fr": "Lecture au survol ou au toucher",
+    "en": "Read by hover or tap",
+    "ewo": "Lecture au survol ou au toucher",
+    "ful": "Lecture au survol ou au toucher",
+    "dua": "Lecture au survol ou au toucher"
+  },
+  "languageLabel": {
+    "fr": "Langue de lecture",
+    "en": "Reading language",
+    "ewo": "Nkobo nzɔ̌",
+    "ful": "Ɗemngal jannginde",
+    "dua": "Ewodi la kosoma"
+  },
+  "speed": {
+    "fr": "Vitesse de lecture {speed}. Cliquer pour changer",
+    "en": "Reading speed {speed}. Click to change",
+    "ewo": "Nlam nzɔ̌ {speed}. Tɔ́ŋ ŋ̀ tsendé",
+    "ful": "Gaawgal jannginde {speed}. Dobbu ngam waylude",
+    "dua": "Mbwanga la kosoma {speed}. Pia o tukwa"
+  },
+  "close": {
+    "fr": "Fermer LexisFlow",
+    "en": "Close LexisFlow",
+    "ewo": "Tɔ́ LexisFlow",
+    "ful": "Uddu LexisFlow",
+    "dua": "Kunda LexisFlow"
+  },
+  "closeHint": {
+    "fr": "Fermer LexisFlow (réactivable dans le menu de l'extension)",
+    "en": "Close LexisFlow (turn back on from the extension menu)",
+    "ewo": "Tɔ́ LexisFlow (bɛ̌ lɛ̌ ai menu)",
+    "ful": "Uddu LexisFlow (huɓɓu fahin e menu)",
+    "dua": "Kunda LexisFlow (pɔ̌ o menu)"
+  },
+  "collapse": {
+    "fr": "Réduire LexisFlow",
+    "en": "Collapse LexisFlow",
+    "ewo": "Koŋ LexisFlow",
+    "ful": "Famɗin LexisFlow",
+    "dua": "Kolo LexisFlow"
+  },
+  "expand": {
+    "fr": "Agrandir LexisFlow",
+    "en": "Expand LexisFlow",
+    "ewo": "Bɔ̀ LexisFlow",
+    "ful": "Ɓeydin LexisFlow",
+    "dua": "Bolo LexisFlow"
+  },
+  "translatedInfo": {
+    "fr": "Page traduite : {done} textes traduits, {left} laissés tels quels",
+    "en": "Page translated: {done} texts translated, {left} left as they were",
+    "ewo": "Nsɔ̀ e tsendé: {done} e tsendé, {left} e kɔ́ŋ",
+    "ful": "Ɗerewol hettinaama: {done} hettinaama, {left} mballaama",
+    "dua": "Mukanda mu tukwabɛ: {done} mbwa, {left} mba lekabɛ"
+  },
+  "readAll": {
+    "fr": "Tout lire",
+    "en": "Read all",
+    "ewo": "Zɔ̌ nsɔ̀ ese",
+    "ful": "Janngu ɗerewol fuu",
+    "dua": "Soma mukanda mwɛsɛ"
+  },
+  "readAllOn": {
+    "fr": "Lecture de toute la page en cours (cliquez de nouveau pour arrêter)",
+    "en": "Reading the whole page (click again to stop)",
+    "ewo": "Lecture de toute la page en cours (cliquez de nouveau pour arrêter)",
+    "ful": "Lecture de toute la page en cours (cliquez de nouveau pour arrêter)",
+    "dua": "Lecture de toute la page en cours (cliquez de nouveau pour arrêter)"
+  },
+  "hoverToReadOn": {
+    "fr": "Lecture activée : posez le pointeur ou touchez un texte pour l'écouter (Échap pour arrêter)",
+    "en": "Reading is on: rest the pointer on, or tap, any text to hear it (Esc to stop)",
+    "ewo": "Lecture activée : posez le pointeur ou touchez un texte pour l'écouter (Échap pour arrêter)",
+    "ful": "Lecture activée : posez le pointeur ou touchez un texte pour l'écouter (Échap pour arrêter)",
+    "dua": "Lecture activée : posez le pointeur ou touchez un texte pour l'écouter (Échap pour arrêter)"
+  },
+  "cardReading": {
+    "fr": "EN LECTURE",
+    "en": "READING",
+    "ewo": "A ZƆ̌",
+    "ful": "JANNGA",
+    "dua": "A SOMA"
+  },
+  "cardAlert": {
+    "fr": "ALERTE",
+    "en": "ALERT",
+    "ewo": "MELEBE",
+    "ful": "REENTINOL",
+    "dua": "MALEA"
+  },
+  "cardError": {
+    "fr": "ERREUR",
+    "en": "ERROR",
+    "ewo": "ABÉ",
+    "ful": "JUUMRE",
+    "dua": "DIWUSƐ"
+  },
+  "cardInfo": {
+    "fr": "INFORMATION",
+    "en": "INFORMATION",
+    "ewo": "NKƆBƆ",
+    "ful": "HABARU",
+    "dua": "NDAMBO"
+  },
+  "voiceBrowser": {
+    "fr": "Voix du navigateur",
+    "en": "Browser voice",
+    "ewo": "Mvɔm ya navigatɛr",
+    "ful": "Sawtu navigatɛr",
+    "dua": "Mvɔm la navigatɛr"
+  },
+  "sentenceOf": {
+    "fr": "Phrase {n} sur {total}",
+    "en": "Sentence {n} of {total}",
+    "ewo": "Nkobo {n} ai {total}",
+    "ful": "Kuwol {n} e {total}",
+    "dua": "Mwɛ {n} na {total}"
+  },
+  "noticeUntranslated": {
+    "fr": "Traduction indisponible : texte original lu tel quel.",
+    "en": "Translation unavailable: original text read as it is.",
+    "ewo": "Ntsendé e kui: nsɔ̀ ya mvús e zɔ̌ nyɔ.",
+    "ful": "Hettinol walaa: binndol gooŋɗum janngaama.",
+    "dua": "Mutukwa mu si: mukanda mwa mbusa mu somabɛ."
+  },
+  "noticeApproximate": {
+    "fr": "Prononciation approximative (aucune voix n'existe pour cette langue).",
+    "en": "Approximate pronunciation (no voice exists for this language).",
+    "ewo": "Nkobo ya nzɔ̌ e ne ntɛ́lɛ (mvɔm e kui).",
+    "ful": "Nde wolwaa nokkuure (sawtu walaa e ɗemngal ndin).",
+    "dua": "Mvɔm la ntɛlɛ (mvɔm a si o ewodi)."
+  },
+  "noticeDraft": {
+    "fr": "Traduction provisoire, non validée par un locuteur natif. Prononciation approximative.",
+    "en": "Draft translation, not checked by a native speaker. Approximate pronunciation.",
+    "ewo": "Ntsendé ya ndɔ́, mot ŋ̀ ki a yebe. Nkobo e ne ntɛ́lɛ.",
+    "ful": "Hettinol sakkitiingol, mo anndi ɗemngal walaa. Nde wolwaa nokkuure.",
+    "dua": "Mutukwa mwa kɔ̌, nu ma ewodi a si memi. Mvɔm la ntɛlɛ."
+  },
+  "nothingToRead": {
+    "fr": "Rien à lire sur cette page.",
+    "en": "Nothing to read on this page.",
+    "ewo": "Ŋ̀ zɔ̌ ki e kui.",
+    "ful": "Walaa ko janngata e ɗerewol ndee.",
+    "dua": "Dambo di si o soma."
+  },
+  "speechUnavailable": {
+    "fr": "La synthèse vocale n'est pas disponible dans ce navigateur.",
+    "en": "Speech is not available in this browser.",
+    "ewo": "Mvɔm e kui ai navigatɛr.",
+    "ful": "Sawtu walaa e navigatɛr oo.",
+    "dua": "Mvɔm a si o navigatɛr."
+  },
+  "speechFailed": {
+    "fr": "La lecture vocale a échoué. Réessayez.",
+    "en": "Reading failed. Please try again.",
+    "ewo": "Nzɔ̌ e lɛ̌ ki. Bɛ̌ lɛ̌.",
+    "ful": "Jannginde waɗaayi. Haɗtu fahin.",
+    "dua": "Kosoma ka bolanɛ si. Tindi pɛ."
+  },
+  "speechNoStart": {
+    "fr": "Aucune voix n'a démarré. Vérifiez la sortie audio du navigateur.",
+    "en": "No voice started. Check the browser's audio output.",
+    "ewo": "Mvɔm ki e ŋgɛ. Fombo mvɔm ya navigatɛr.",
+    "ful": "Sawtu fuu fuɗɗaayi. Ƴeewtu sawtu navigatɛr.",
+    "dua": "Mvɔm di si. Ombwa mvɔm la navigatɛr."
+  },
+  "popupAria": {
+    "fr": "Réglages LexisFlow",
+    "en": "LexisFlow settings",
+    "ewo": "Mbabɛ LexisFlow",
+    "ful": "Teelte LexisFlow",
+    "dua": "Mbadi la LexisFlow"
+  },
+  "popupTagline": {
+    "fr": "Accessibilité vocale multilingue",
+    "en": "Multilingual voice accessibility",
+    "ewo": "Mvɔm ya nkobo mese",
+    "ful": "Sawtu e ɗemngal ɗuuɗɗe",
+    "dua": "Mvɔm la ewodi mɛsɛ"
+  },
+  "popupBlocked": {
+    "fr": "LexisFlow est actif uniquement sur l'environnement de test SAFINUM.",
+    "en": "LexisFlow only works on the SAFINUM test environment.",
+    "ewo": "LexisFlow e ŋgɛ ai vôm ya tem SAFINUM tɔ.",
+    "ful": "LexisFlow hollii tan e nokkuure foondol SAFINUM.",
+    "dua": "LexisFlow a mboa o wuma la keka la SAFINUM tɛ."
+  },
+  "popupSite": {
+    "fr": "Ce site",
+    "en": "This site",
+    "ewo": "Vôm yi",
+    "ful": "Nokkuure ndee",
+    "dua": "Wuma ndi"
+  },
+  "popupSiteHint": {
+    "fr": "Seul site autorisé, non modifiable",
+    "en": "Only allowed site, cannot be changed",
+    "ewo": "Vôm yɔ̀ tɔ, e tsendé ki",
+    "ful": "Nokkuure gooto, waylataa",
+    "dua": "Wuma ndɔ̌ tɛ, di tukwa si"
+  },
+  "popupEnable": {
+    "fr": "Activer LexisFlow",
+    "en": "Turn LexisFlow on",
+    "ewo": "Ŋgɛ LexisFlow",
+    "ful": "Hollu LexisFlow",
+    "dua": "Mboa LexisFlow"
+  },
+  "popupEnableHint": {
+    "fr": "Désactivé : le bouton disparaît de la page",
+    "en": "Off: the button disappears from the page",
+    "ewo": "A ŋgɛ ki: bǔtɔ̀ e kui",
+    "ful": "Maayii: bɔtɔŋ ɓoora e ɗerewol",
+    "dua": "A si: bɔtɔ ka tombi o mukanda"
+  },
+  "popupRead": {
+    "fr": "Lecture",
+    "en": "Reading",
+    "ewo": "Nzɔ̌",
+    "ful": "Jannginde",
+    "dua": "Kosoma"
+  },
+  "popupLanguage": {
+    "fr": "Langue par défaut",
+    "en": "Default language",
+    "ewo": "Nkobo ya ndɔ́",
+    "ful": "Ɗemngal timmungal",
+    "dua": "Ewodi la mbwa"
+  },
+  "popupDraft": {
+    "fr": "Traduction provisoire, non validée par un locuteur natif.",
+    "en": "Draft translation, not checked by a native speaker.",
+    "ewo": "Ntsendé ya ndɔ́, mot ŋ̀ ki a yebe.",
+    "ful": "Hettinol sakkitiingol, mo anndi ɗemngal walaa.",
+    "dua": "Mutukwa mwa kɔ̌, nu ma ewodi a si memi."
+  },
+  "popupAuto": {
+    "fr": "Lire les frais automatiquement",
+    "en": "Read fees automatically",
+    "ewo": "Zɔ̌ tañ ai ndɔ́",
+    "ful": "Janngu njoɓdi hoore mum",
+    "dua": "Soma sawedi na mɔmɛnɛ"
+  },
+  "popupAutoHint": {
+    "fr": "Seulement les frais, jamais le reste",
+    "en": "Fees only, nothing else",
+    "ewo": "Tañ tɔ, ki mfə́",
+    "ful": "Njoɓdi tan, walaa feere",
+    "dua": "Sawedi tɛ, dambo nipɛpɛ si"
+  },
+  "popupPrivacy": {
+    "fr": "Le texte de la page reste sur cet ordinateur.",
+    "en": "The page text stays on this computer.",
+    "ewo": "Nsɔ̀ e kui ai ndá.",
+    "ful": "Binndol ɗerewol hoodi e kompiyuta ndee.",
+    "dua": "Mukanda mu mboa o kɔmpyuta ndi."
+  },
+  "popupReset": {
+    "fr": "Réinitialiser les réglages",
+    "en": "Reset settings",
+    "ewo": "Bɛ̌ mbabɛ",
+    "ful": "Hettinde teelte",
+    "dua": "Tindi mbadi"
+  },
+  "originalTag": {
+    "fr": "original",
+    "en": "original",
+    "ewo": "mvús",
+    "ful": "gooŋɗum",
+    "dua": "mbusa"
+  },
+  "languageAuto": {
+    "fr": "Langue du site",
+    "en": "Site language",
+    "ewo": "Nkobo ya vôm",
+    "ful": "Ɗemngal nokkuure",
+    "dua": "Ewodi la wuma"
+  }
+}

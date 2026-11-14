@@ -1,0 +1,839 @@
+/* LexisFlow widget stylesheet. Adopted into the shadow root only; nothing here reaches the portal.
+   Values are ported from the Figma Make design. */
+
+/* Set on the dock, not :host: the host carries an inline `all: initial`, which outranks :host rules. */
+.lexis-dock {
+  font-family: "LexisFlow Manrope", "Manrope", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #dbe7f5;
+  font-synthesis: none;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Minimal reset (the design relied on Tailwind's preflight). */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+}
+button,
+select {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  background: transparent;
+  text-shadow: inherit;
+  cursor: pointer;
+}
+svg {
+  display: block;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+/* Keyboard focus ring: a real outline, not only a shadow, because high-contrast modes drop shadows but
+   keep outlines. Layers outward from the control: a 2 px dark ring (the shadow, filling the outline's
+   offset gap) then a 2 px sky-blue outline. The dark ring keeps the indicator at 3:1 or better on light
+   glass, the sky outline does so on dark glass (checked in tests/keyboard-a11y.test.ts). Nothing here
+   removes a focus indicator: only the mouse-click focus state (:focus without :focus-visible) is quiet. */
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #0f172a;
+}
+button:focus:not(:focus-visible),
+select:focus:not(:focus-visible) {
+  outline: none;
+}
+@media (forced-colors: active) {
+  button:focus-visible,
+  select:focus-visible {
+    outline: 2px solid Highlight;
+    box-shadow: none;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Frosted-glass theme. Only colours change here; sizes, shapes and layout are untouched.
+   data-tone is set by script from the brightness of the page behind the widget:
+     dark  = dark page  -> white text, small slate tint under the glass
+     light = light page -> dark slate text, small white tint under the glass
+   The tint is what keeps text at 4.5:1 or better over any backdrop (checked in tests/glass-contrast.test.ts).
+   Do not put `filter` on .lexis-dock or an ancestor: it would stop backdrop-filter seeing the page. */
+.lexis-dock,
+.lexis-dock[data-tone="dark"] {
+  --g-fill: rgba(255, 255, 255, 0.18);
+  --g-tint: rgba(15, 23, 42, 0.3);
+  --g-rim: rgba(255, 255, 255, 0.35);
+  --g-control: rgba(255, 255, 255, 0.25);
+  --g-control-rim: rgba(255, 255, 255, 0.3);
+  --g-divider: rgba(255, 255, 255, 0.3);
+  --g-text: #ffffff;
+  --g-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --g-active: #6ee7b7;
+  --g-accent: #fde68a;
+  --g-danger: #fecaca;
+  --g-track: rgba(255, 255, 255, 0.3);
+}
+.lexis-dock[data-tone="light"] {
+  --g-tint: rgba(255, 255, 255, 0.45);
+  --g-text: #0f172a;
+  --g-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+  /* Over mid-tone pages only near-black text reaches 4.5:1, so accents use the text colour; the amber
+     dot, the highlight tint and the red hover border still carry the colour cue. */
+  --g-active: #04382a;
+  --g-accent: #0f172a;
+  --g-danger: #0f172a;
+  --g-track: rgba(15, 23, 42, 0.25);
+  --g-divider: rgba(15, 23, 42, 0.25);
+  /* A white rim disappears on a white glass, so controls get a slate hairline (3:1 against the glass). */
+  --g-control-rim: rgba(15, 23, 42, 0.6);
+}
+/* The same glass, shared by the pill and the reading card. */
+.widget-shell,
+.reading-card {
+  background:
+    linear-gradient(var(--g-tint), var(--g-tint)),
+    var(--g-fill);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--g-rim);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  color: var(--g-text);
+  text-shadow: var(--g-text-shadow);
+}
+
+/* The host is click-through; only visible widget surfaces take pointer events. */
+.lexis-dock {
+  width: min(760px, calc(100vw - 48px));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: var(--g-text);
+  pointer-events: none;
+}
+.widget-shell,
+.is-playing .reading-card {
+  pointer-events: auto;
+}
+
+.reading-card {
+  width: 420px;
+  max-width: calc(100% - 14px);
+  margin: 0 14px 10px auto;
+  border-radius: 15px;
+  padding: 14px 17px 12px;
+  transform-origin: bottom right;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.97);
+  transition:
+    opacity 0.25s,
+    transform 0.25s,
+    visibility 0.25s;
+}
+.is-playing .reading-card {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.reading-topline,
+.reading-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.now-reading {
+  color: var(--g-accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+.now-reading span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 9px #f59e0b;
+  margin-right: 5px;
+  animation: pulse 1.3s infinite;
+}
+.reading-language,
+.reading-footer {
+  color: var(--g-text);
+  font-size: 11px;
+}
+.reading-card p {
+  color: var(--g-text);
+  font-size: 15px;
+  margin: 12px 0 12px;
+  min-height: 22px;
+}
+.reading-card mark {
+  color: var(--g-accent);
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: #f59e0b33;
+  padding: 2px 4px;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px var(--g-accent);
+}
+.reading-progress {
+  height: 4px;
+  border-radius: 99px;
+  background: var(--g-track);
+  overflow: hidden;
+}
+.reading-progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #14b8a6, #f59e0b);
+  border-radius: inherit;
+  transition: width 0.2s linear;
+}
+.reading-footer {
+  margin-top: 7px;
+}
+.reading-footer b {
+  font-weight: 400;
+  color: var(--g-text);
+  margin: 0 2px;
+}
+
+.widget-shell {
+  /* Only as wide as its controls: no empty stretch between them. */
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 19px;
+  overflow: hidden;
+}
+.widget-main {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+}
+.widget-brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin-right: 4px;
+  gap: 10px;
+}
+.status-orbit {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: var(--g-text);
+  background: var(--g-control);
+  border: 1px solid var(--g-control-rim);
+  box-shadow: 0 0 22px #14b8a61a;
+  position: relative;
+}
+.status-orbit::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  border: 2px solid #122237;
+  right: 3px;
+  top: 3px;
+  box-sizing: content-box;
+  box-shadow: 0 0 8px #34d399;
+}
+.status-orbit svg {
+  width: 20px;
+}
+.widget-brand > div {
+  display: flex;
+  flex-direction: column;
+}
+.widget-brand strong {
+  color: var(--g-text);
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+/* The state word carries the colour (green while active, amber while reading, red on error). The word
+   itself changes too, so colour is never the only cue. */
+.widget-brand small {
+  color: var(--g-active);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-top: 3px;
+  white-space: nowrap;
+}
+.is-active .widget-brand small {
+  color: var(--g-accent);
+}
+.is-error .widget-brand small {
+  color: var(--g-danger);
+}
+.play-button {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fbbf24, #f59e0b);
+  color: #241905;
+  text-shadow: none;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 25px #f59e0b38;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.play-button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 34px #f59e0b5c;
+}
+.play-button svg {
+  width: 20px;
+}
+.wave-wrap {
+  flex: 0 0 52px;
+  width: 52px;
+  display: flex;
+  justify-content: center;
+}
+.waveform {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.waveform span {
+  width: 3px;
+  border-radius: 99px;
+  background: linear-gradient(#2dd4bf, #f59e0b);
+  animation: wave 0.9s ease-in-out infinite alternate;
+  transform: scaleY(0.5);
+}
+.ready-label {
+  color: var(--g-text);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.select-wrap {
+  height: 44px;
+  min-width: 128px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--g-control);
+  border: 1px solid var(--g-control-rim);
+  border-radius: 9px;
+}
+.select-wrap select {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  color: var(--g-text);
+  padding: 0 32px 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+/* The native list opens on the system's own light surface: keep its text dark and solid. */
+.select-wrap select option {
+  color: #0f172a;
+  background: #ffffff;
+  font-weight: 600;
+  text-shadow: none;
+}
+.select-wrap svg {
+  width: 16px;
+  position: absolute;
+  right: 9px;
+  color: var(--g-text);
+  pointer-events: none;
+}
+.speed-button {
+  height: 44px;
+  min-width: 56px;
+  padding: 0 10px;
+  border-radius: 9px;
+  color: var(--g-text);
+  background: var(--g-control);
+  border: 1px solid var(--g-control-rim);
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.speed-button:hover {
+  color: var(--g-text);
+  border-color: #14b8a6;
+}
+.widget-hint {
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 4px 15px;
+  border-top: 1px solid var(--g-divider);
+  color: var(--g-text);
+  font-size: 11px;
+}
+.widget-hint > span:first-child {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+.widget-hint svg {
+  width: 14px;
+  margin-right: 5px;
+  color: var(--g-text);
+}
+.widget-hint .hint-keys {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  /* Phones have no Alt key, and the row has no room. */
+  .widget-hint .hint-keys {
+    display: none;
+  }
+}
+.widget-hint kbd {
+  border: 1px solid var(--g-control-rim);
+  border-radius: 3px;
+  padding: 1px 5px;
+  color: var(--g-text);
+  background: var(--g-control);
+  font-family: inherit;
+}
+
+/* Collapse / expand toggle (not in the Figma file; added for the compact pill). */
+.collapse-button {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  color: var(--g-text);
+  background: var(--g-control);
+  border: 1px solid var(--g-control-rim);
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.collapse-button:hover {
+  color: var(--g-text);
+  border-color: #14b8a6;
+}
+.collapse-button svg {
+  width: 18px;
+  transition: transform 0.2s;
+}
+.is-collapsed .collapse-button svg {
+  transform: rotate(180deg);
+}
+
+/* Collapsed pill: orb, play, language, speed, expand. */
+.is-collapsed .widget-shell {
+  width: auto;
+  max-width: 100%;
+  border-radius: 9999px;
+}
+.is-collapsed .widget-main {
+  min-height: 0;
+  padding: 8px 10px;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.is-collapsed .widget-brand {
+  flex: 0 0 auto;
+  margin-right: 0;
+}
+@media (max-width: 420px) {
+  /* Narrow phones: drop the decorative orb so every control keeps its 44px target, and let the
+     language selector (the only flexible part) give way so the expand and close buttons stay on screen. */
+  .is-collapsed .widget-brand {
+    display: none;
+  }
+  .is-collapsed .widget-main {
+    gap: 6px;
+    padding: 8px;
+  }
+  /* Written with .widget-main so it outranks the later, wider desktop rules for the collapsed pill. */
+  .is-collapsed .widget-main .select-wrap {
+    min-width: 84px;
+    flex: 1 1 84px;
+    flex-shrink: 1;
+  }
+  .is-collapsed .widget-main .speed-button {
+    min-width: 48px;
+    padding: 0 6px;
+  }
+}
+@media (max-width: 360px) {
+  /* Five 44 px targets do not fit on one row here: wrap them rather than push the expand button off screen. */
+  .is-collapsed .widget-shell {
+    border-radius: 26px;
+  }
+  .is-collapsed .widget-main {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+.is-collapsed .status-orbit,
+.is-collapsed .select-wrap,
+.is-collapsed .speed-button,
+.is-collapsed .collapse-button {
+  border-radius: 9999px;
+}
+.is-collapsed .select-wrap {
+  min-width: 118px;
+}
+.is-collapsed .select-wrap select {
+  padding-left: 16px;
+}
+
+/* Status dot: emerald when idle, amber while speaking. Shape differs too (ring), not colour alone. */
+.is-active .status-orbit::after {
+  background: #f59e0b;
+  box-shadow:
+    0 0 8px #f59e0b,
+    0 0 0 2px #f59e0b55;
+}
+
+@keyframes wave {
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .widget-main {
+    flex-wrap: wrap;
+  }
+  .widget-brand {
+    margin-right: auto;
+  }
+  .lexis-dock {
+    width: min(560px, calc(100vw - 48px));
+  }
+  .collapse-button {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .widget-main {
+    gap: 10px;
+    padding: 10px;
+  }
+  .wave-wrap {
+    display: none;
+  }
+  .select-wrap {
+    min-width: 104px;
+  }
+
+  /* Expanded bar on a phone, two fixed rows so nothing drifts with the language's text length:
+       row 1: logo and status (stretching) + Play
+       row 2: language (stretching) + speed + close + expand
+     The brand takes all of row 1 except the Play button, which forces the break before the language. */
+  .lexis-dock:not(.is-collapsed) .widget-main {
+    gap: 8px;
+  }
+  .lexis-dock:not(.is-collapsed) .widget-brand {
+    flex: 1 0 calc(100% - 52px);
+    margin-right: 0;
+  }
+  .lexis-dock:not(.is-collapsed) .select-wrap {
+    flex: 1 1 0;
+    flex-shrink: 1;
+    min-width: 84px;
+  }
+  .lexis-dock:not(.is-collapsed) .speed-button {
+    min-width: 52px;
+    padding: 0 8px;
+  }
+  .collapse-button {
+    margin-left: 0;
+  }
+}
+
+/* Reading card extras: source sentence, notices, error state. */
+.reading-card .reading-original {
+  color: var(--g-text);
+  font-size: 12px;
+  font-style: italic;
+  margin: -6px 0 10px;
+  min-height: 0;
+}
+.reading-card .reading-notice {
+  color: var(--g-accent);
+  font-size: 11px;
+  margin: -4px 0 10px;
+  min-height: 0;
+}
+.reading-card.is-error {
+  border-color: #ef444480;
+}
+.reading-card.is-error .now-reading {
+  color: var(--g-danger);
+}
+.reading-card.is-error .now-reading span {
+  background: #ef4444;
+  box-shadow: 0 0 9px #ef4444;
+  animation: none;
+}
+.is-error .status-orbit::after {
+  background: #ef4444;
+  border-radius: 2px;
+  box-shadow: 0 0 8px #ef4444;
+}
+
+/* Loader beside "Préparation de la voix naturelle…" */
+.reading-card .preparing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ring {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  transform: rotate(-90deg); /* start at the top, fill clockwise */
+}
+.ring circle {
+  fill: none;
+  stroke-width: 2.2;
+}
+.ring-track {
+  stroke: var(--g-track);
+}
+.ring-fill {
+  stroke: var(--g-accent);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.15s linear;
+}
+
+/* Close button: same size and tone as the other dock controls */
+.close-button {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  color: var(--g-text);
+  background: var(--g-control);
+  border: 1px solid var(--g-control-rim);
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.close-button:hover {
+  color: var(--g-danger);
+  border-color: #ef4444;
+}
+.close-button svg {
+  width: 18px;
+}
+
+/* Expand button: always glowing from the moment the extension loads, so it is easy to find.
+   The glow brightens and softens gently; it never switches off. */
+.collapse-button {
+  border-color: #14b8a6;
+  box-shadow: 0 0 8px 1px #14b8a688;
+  animation: glow 2.4s ease-in-out infinite;
+}
+/* An animation overrides ordinary declarations, so without this the focus ring never shows on this button.
+   While focused, the glow stops and the standard ring is drawn together with a steady glow. */
+.collapse-button:focus-visible {
+  animation: none;
+  box-shadow:
+    0 0 0 2px #0f172a,
+    0 0 18px 4px #14b8a6dd;
+}
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px 1px #14b8a688;
+  }
+  50% {
+    box-shadow: 0 0 18px 4px #14b8a6dd;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .collapse-button {
+    animation: none;
+  }
+  .ring-fill {
+    transition: none;
+  }
+}
+
+/* Expanded bar: text shrinks with an ellipsis instead of running under neighbouring controls. */
+.widget-main > * {
+  min-width: 0;
+}
+.widget-brand {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+.widget-brand small,
+.widget-brand strong {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.play-button,
+.speed-button,
+.close-button,
+.collapse-button,
+.select-wrap {
+  flex-shrink: 0;
+}
+
+/* Reading box (Play). One amber box, the colour of the page's own reading highlight, around the text
+   block under the pointer. Fixed to the viewport and positioned by script from the block's rectangle; it
+   never takes pointer events, so the page underneath stays fully usable. The dark outer ring keeps the
+   edge at 3:1 or better on light backgrounds too (WCAG 1.4.11). No animation. */
+.hover-layer {
+  pointer-events: none;
+}
+.hover-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border: 2px solid #f59e0b;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.12);
+  box-shadow: 0 0 0 2px #0f172a;
+}
+.hover-box[hidden] {
+  display: none;
+}
+@media (forced-colors: active) {
+  .hover-box {
+    border-color: Highlight;
+    background: transparent;
+    box-shadow: 0 0 0 2px Canvas;
+  }
+}
+
+/* Second row of the expanded bar: translate the page, click-to-read, and what they report. */
+.widget-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--g-divider);
+}
+.tool-button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: var(--g-text);
+  background: var(--g-control);
+  border: 1px solid var(--g-control-rim);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+.tool-button svg {
+  width: 18px;
+  flex: 0 0 18px;
+}
+.tool-button:hover {
+  border-color: #14b8a6;
+}
+.tool-button.is-on {
+  color: #04211d;
+  background: #5eead4;
+  border-color: #5eead4;
+  text-shadow: none;
+}
+.tool-info {
+  flex: 1 1 160px;
+  min-width: 0;
+  color: var(--g-text);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* Users who ask for less transparency, or forced colours, get a solid surface instead of glass. */
+@media (prefers-reduced-transparency: reduce) {
+  .widget-shell,
+  .reading-card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: #0f172a;
+  }
+  .lexis-dock[data-tone="light"] .widget-shell,
+  .lexis-dock[data-tone="light"] .reading-card {
+    background: #ffffff;
+  }
+}
+@media (forced-colors: active) {
+  .widget-shell,
+  .reading-card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+    text-shadow: none;
+  }
+}

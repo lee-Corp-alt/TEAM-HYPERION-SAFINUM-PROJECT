@@ -1,0 +1,266 @@
+/* Toolbar popup, 320 × 450. Same frosted-glass values as the on-page widget (SRS 4.1).
+   A popup is its own window with no page behind it, so the glass sits on one flat, soft sage-teal
+   (--backdrop). It stays dark enough for white text at 4.5:1 or better on the glass;
+   tests/glass-contrast.test.ts checks that from this value. */
+:root {
+  --backdrop: #16322f;
+  --g-fill: rgba(255, 255, 255, 0.18);
+  --g-tint: rgba(15, 23, 42, 0.3);
+  --g-rim: rgba(255, 255, 255, 0.35);
+  --g-control: rgba(255, 255, 255, 0.25);
+  --g-control-rim: rgba(255, 255, 255, 0.3);
+  --surface: #0f172a;
+  --text: #ffffff;
+  --text-2: #e2e8f0; /* only on the backdrop itself; inside the glass, text is --text */
+  --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --teal: #14b8a6;
+  --amber: #f59e0b;
+  --emerald: #10b981;
+  --danger: #ef4444;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 340px;
+  overflow: hidden;
+  background: var(--backdrop);
+  color: var(--text);
+  text-shadow: var(--text-shadow);
+  font-family: "Manrope Variable", "Manrope", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+button,
+select {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  text-shadow: inherit;
+  cursor: pointer;
+}
+button:disabled,
+select:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* The popup fills its whole window with the backdrop colour: no frame, no inner card. (Chrome draws
+   the window's own outer corners; a popup page cannot change them.) */
+.popup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 24px 12px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.head h1 {
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+.head p {
+  color: var(--text-2);
+  font-size: 12px;
+}
+.orbit {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  background: var(--g-control);
+  border: 1px solid var(--g-control-rim);
+}
+.orbit svg {
+  width: 20px;
+}
+
+.notice {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #f59e0b99;
+  background: rgba(245, 158, 11, 0.22);
+  color: #fde68a;
+  font-size: 12px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+h2 {
+  color: var(--text-2);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.row,
+.field {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background:
+    linear-gradient(var(--g-tint), var(--g-tint)),
+    var(--g-fill);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--g-rim);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  text-align: left;
+  width: 100%;
+}
+.row.static {
+  cursor: default;
+}
+.row-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.row-label {
+  font-size: 13px;
+  font-weight: 700;
+}
+.row-hint {
+  color: var(--text);
+  font-size: 11px;
+}
+
+.switch:hover:not(:disabled) {
+  border-color: var(--teal);
+}
+.track {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--g-control);
+  border: 1px solid var(--g-control-rim);
+  position: relative;
+  transition: background 0.2s;
+}
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+  transition: transform 0.2s;
+}
+.switch[aria-checked="true"] .track {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+.switch[aria-checked="true"] .thumb {
+  transform: translateX(18px);
+}
+
+.field {
+  cursor: default;
+}
+.select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 128px;
+}
+.select-wrap select {
+  appearance: none;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 30px 0 10px;
+  border-radius: 8px;
+  background: var(--g-control);
+  border: 1px solid var(--g-control-rim);
+  font-size: 13px;
+  font-weight: 700;
+}
+.select-wrap select option {
+  background: var(--surface);
+}
+.select-wrap svg {
+  position: absolute;
+  right: 8px;
+  width: 16px;
+  color: var(--text);
+  pointer-events: none;
+}
+.hint-draft {
+  color: var(--amber);
+  font-size: 11px;
+}
+
+.foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--g-control-rim);
+}
+.link {
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0 4px;
+  color: #7dd3fc;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .thumb {
+    transition: none;
+  }
+}
+
+/* Users who ask for less transparency, or forced colours, get solid surfaces instead of glass. */
+@media (prefers-reduced-transparency: reduce) {
+  .row,
+  .field {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: #0f172a;
+  }
+}
+@media (forced-colors: active) {
+  .row,
+  .field {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: Canvas;
+    border-color: CanvasText;
+    text-shadow: none;
+  }
+}

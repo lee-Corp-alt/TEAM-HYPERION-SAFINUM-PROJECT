@@ -1,0 +1,25 @@
+# dependencies and build output
+node_modules/
+dist/
+
+# internal team notes and working files (not part of the project's source)
+team-notes/
+
+# local tool settings
+.claude/
+
+# packaged submission files
+*.zip
+
+# operating-system files
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# documents delivered through the SAFINUM submission form, not through the repository
+TECHNICAL.md
+LANGUAGE-VALIDATION.md
+SOURCES.md
+VERIFICATION.md
+DISCLOSURE-CARD.md
+docs/
